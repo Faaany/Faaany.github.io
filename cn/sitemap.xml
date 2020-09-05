@@ -4,6 +4,7 @@
   
   <url>
     <loc>https://faaany.github.io/cn/categories/</loc>
+    <lastmod>2020-09-06T00:12:15+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -17,7 +18,13 @@
   </url>
   
   <url>
+    <loc>https://faaany.github.io/cn/posts/docker/</loc>
+    <lastmod>2020-09-06T00:12:15+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://faaany.github.io/cn/</loc>
+    <lastmod>2020-09-06T00:12:15+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,6 +35,26 @@
                 hreflang="cn"
                 href="https://faaany.github.io/cn/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://faaany.github.io/cn/posts/</loc>
+    <lastmod>2020-09-06T00:12:15+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://faaany.github.io/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://faaany.github.io/cn/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://faaany.github.io/cn/categories/tools/</loc>
+    <lastmod>2020-09-06T00:12:15+02:00</lastmod>
   </url>
   
   <url>
