@@ -3,44 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.joway.io/cn/categories/</loc>
+    <loc>https://faaany.github.io/cn/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.joway.io/categories/"
+                href="https://faaany.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://blog.joway.io/cn/categories/"
+                href="https://faaany.github.io/cn/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://blog.joway.io/cn/</loc>
+    <loc>https://faaany.github.io/cn/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.joway.io/"
+                href="https://faaany.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://blog.joway.io/cn/"
+                href="https://faaany.github.io/cn/"
                 />
   </url>
   
   <url>
-    <loc>https://blog.joway.io/cn/tags/</loc>
+    <loc>https://faaany.github.io/cn/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.joway.io/tags/"
+                href="https://faaany.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://blog.joway.io/cn/tags/"
+                href="https://faaany.github.io/cn/tags/"
                 />
   </url>
   
