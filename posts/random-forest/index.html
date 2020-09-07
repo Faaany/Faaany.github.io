@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Fanli" />
+  <meta property="og:url" content="https://faaany.github.io/posts/random-forest/" />
+  <link rel="canonical" href="https://faaany.github.io/posts/random-forest/" /><link rel="preload" href="/js/highlight.pack.js" as="script" /><link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="icon" href="/logo.png" />
+  <link rel="shortcut" href="/logo.png" /><link rel="alternate" type="application/atom+xml" href="https://faaany.github.io/index.xml" title="Fanli&#39;s Blog">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/faaany.github.io\/"
+      },
+      "articleSection" : "posts",
+      "name" : "Random Forest",
+      "headline" : "Random Forest",
+      "description" : "If you know how decision tree works, random forest will be very straightforward to understand. Random forest is just a collection of randomly generated decision trees where each decision tree makes his own prediction. Random forest combines the predictions of individual trees and takes either the majority or the average of all predictions as his output. The image below gives a very good overview about how random forest works:\nThere are three steps in random forest algorithm.",
+      "inLanguage" : "en-US",
+      "author" : "Fanli",
+      "creator" : "Fanli",
+      "publisher": "Fanli",
+      "accountablePerson" : "Fanli",
+      "copyrightHolder" : "Fanli",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-09-06 18:08:13 \x2b0200 CEST",
+      "dateModified" : "2020-09-06 18:08:13 \x2b0200 CEST",
+      "url" : "https:\/\/faaany.github.io\/posts\/random-forest\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>Random Forest - Fanli&#39;s Blog</title>
+  <meta property="og:title" content="Random Forest - Fanli&#39;s Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="If you know how decision tree works, random forest will be very straightforward to understand. Random forest is just a collection of randomly generated decision trees where each decision tree makes his own prediction. Random forest combines the predictions of individual trees and takes either the majority or the average of all predictions as his output. The image below gives a very good overview about how random forest works:
+There are three steps in random forest algorithm." />
+  <meta name="description" content="If you know how decision tree works, random forest will be very straightforward to understand. Random forest is just a collection of randomly generated decision trees where each decision tree makes his own prediction. Random forest combines the predictions of individual trees and takes either the majority or the average of all predictions as his output. The image below gives a very good overview about how random forest works:
+There are three steps in random forest algorithm." />
+  <meta property="og:locale" content="en-us" />
+
+  <link rel="stylesheet" href="/css/flexboxgrid-6.3.1.min.css" />
+  <link rel="stylesheet" href="/css/github-markdown.css" />
+  <link rel="stylesheet" href="/css/highlight/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+
+  
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="Fanli&#39;s Blog">
+  
+  <link href="https://fonts.googleapis.com/css?family=Lato|Permanent+Marker|Bree+Serif" rel="stylesheet">
+  
+  
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148696906-1"></script>
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+
+<body>
+  <article class="post English" id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">Fanli Lin</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+  <div class="lang-switch col-xs-3 col-xs-offset-9">
+    <a href="/cn/">Chinese</a>
+  </div>
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">Random Forest</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2020-09-06 18:08:13 CEST">
+                06 Sep 2020
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+              <div class="post-author">
+                <a target="_blank" href="https://github.com/Faaany">@Fanli</a>
+              </div>
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <p>If you know how decision tree works, random forest will be very straightforward to understand. Random forest is just a collection of randomly generated decision trees where each decision tree makes his own prediction. Random forest combines the predictions of individual trees and takes either the majority or the average of all predictions as his output. The image below gives a very good overview about how random forest works:</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1giisqyvsuij30kp0c9t9r.jpg" alt=""></p>
+<p>There are three steps in random forest algorithm. The first step is to build various training data subsets using bootstrap sampling method. In bootstrap sampling, data is randomly drawn from the original training data with replacement.  If our training data was [1, 2, 3, 4, 5, 6], then we might construct a bootstrapped data set of [1, 2, 2, 3, 6, 6]. Notice that both &ldquo;2&rdquo; and &ldquo;6&rdquo; appear twice in the final data set, because we sample with replacement. The size of the training subsets is variable. Using 63% of the original training data set is the classical implementation.</p>
+<p>After all training data subsets are built, the next step is to train decision trees with the respective training data subsets. And here is another trick: normally, when we build a decision tree, we will consider every possible feature and pick the attribute that produces the most separation between the observations in the left node and the right node. In random forest, each tree can only pick from a random subset of features to build nodes. Since individual decision tree is trained with different data sets and different set of features, we will have decision trees that have a large variance in the predictions they produce.</p>
+<p>In the last step, predictions of each individual decision tree is combined to produce the final prediction.</p>
+<p>The first and third steps combined has a special name called <strong>Bagging</strong>. It is a very common technique in machine learning and also the core of random forest algorithm.</p>
+<h2 id="advantages">Advantages</h2>
+<ul>
+<li>
+<p>Does not require careful configuration of parameters, works well out of the box.</p>
+</li>
+<li>
+<p>Provides feature importance</p>
+</li>
+<li>
+<p>Can work with data without almost no preprocessing</p>
+</li>
+<li>
+<p>High learning speed</p>
+</li>
+<li>
+<p>Easily parallelizable</p>
+</li>
+<li>
+<p>High quality of the obtained models</p>
+</li>
+<li>
+<p>A small number of configurable parameters</p>
+</li>
+<li>
+<p>Works well with missing data</p>
+</li>
+<li>
+<p>Internal assessment of the model's generalization ability.</p>
+</li>
+</ul>
+<h2 id="disadvantages">Disadvantages</h2>
+<ul>
+<li>The constructed model takes up a large amount of memory and can be slow to evaluate</li>
+<li>Random forest works worse than most linear methods when a set has a lot of sparse features (texts, Bag of words) or when the objects to be classified can be separated linearly.</li>
+<li>Random forest is prone to overfitting</li>
+<li>For data that include categorical variables with a different number of levels, random forests are biased in favor of features with more levels. A tree will be more strongly adjusted to such features, as they allow receiving a higher value of optimized functional (type of information gain) [3].</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Random forest is one of the most powerful machine learning methods and proved to be very effective in solving practical problems. It provides a high quality of training with a seemingly large number of randomness introduced into the process of constructing the model. The advantage over other machine learning models is an out-of-bag estimate for a part of the set that is not included in the training sample. Therefore, cross-validation or testing on a single sample are not necessary for the decision trees. It suffices to limit ourselves to the out-of-bag estimate for further &ldquo;tuning&rdquo; of the model: selecting the number of decision trees and the regularising component [3].</p>
+<h2 id="references">References</h2>
+<p>[1] <a href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2">Understanding Random Forest</a></p>
+<p>[2] <a href="http://www.scholarpedia.org/article/Ensemble_learning">Ensemble Learning</a></p>
+<p>[3] <a href="https://www.mql5.com/en/articles/widget/3856">Random Decision Forest in Reinforcement Learning</a></p>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+            <div class="post-category">
+              <a href="/categories/machine%20learn/">
+                machine learn
+              </a>
+            </div>
+            
+          </div>
+        </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
+          <div class="post-comments">
+            <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://fanlis-blog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+          </div>
+          
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/Faaany" target="_blank">About Me</a>
+  </div>
+  
+  <div class="site-footer-item">
+    <a href="https://github.com/Faaany" target="_blank">Github</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>

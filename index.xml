@@ -6,10 +6,20 @@
     <description>Recent content on Fanli&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Sep 2020 19:50:33 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2020 18:08:13 +0200</lastBuildDate>
     
 	<atom:link href="https://faaany.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Random Forest</title>
+      <link>https://faaany.github.io/posts/random-forest/</link>
+      <pubDate>Sun, 06 Sep 2020 18:08:13 +0200</pubDate>
+      
+      <guid>https://faaany.github.io/posts/random-forest/</guid>
+      <description>If you know how decision tree works, random forest will be very straightforward to understand. Random forest is just a collection of randomly generated decision trees where each decision tree makes his own prediction. Random forest combines the predictions of individual trees and takes either the majority or the average of all predictions as his output. The image below gives a very good overview about how random forest works:
+There are three steps in random forest algorithm.</description>
+    </item>
     
     <item>
       <title>Brief Introduction to Decision Trees</title>
